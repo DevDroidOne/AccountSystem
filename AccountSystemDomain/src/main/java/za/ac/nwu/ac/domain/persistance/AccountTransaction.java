@@ -1,7 +1,6 @@
 package za.ac.nwu.ac.domain.persistance;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -18,8 +17,10 @@ import java.time.LocalDate;
 
 public class AccountTransaction implements Serializable {
     @Id
-    @Column(name = "ACCOUNT_TYPE_ID")
-    private Long accountTypeId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ACCOUNT_TYPE_ID")
+    private AccountType accountTypeId;
 
     @Column(name="ACCOUNT_TX_ID")
     private Long AccountTxId;

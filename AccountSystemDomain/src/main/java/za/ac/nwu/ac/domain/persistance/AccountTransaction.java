@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @NonNull
 @Entity
-@Table(name = "DEMO_ACCOUNT_TX",schema = "JANCO")
+@Table(name = "DEMO_ACCOUNT_TX",schema = "DEMO_SCHEMA")
 
 public class AccountTransaction implements Serializable {
     @Id

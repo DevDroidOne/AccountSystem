@@ -1,7 +1,6 @@
 package za.ac.nwu.ac.web.sb.controller;
 
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +20,11 @@ import java.util.List;
 @RequestMapping("account-type")
 public class AccountTypeController {
 
+    @Autowired
     private final FetchAccountTypeFlow fetchAccountTypeFlow;
     private final CreateAccountTypeFlow createAccountTypeFlow;
 
-    @Autowired
-    public AccountTypeController(FetchAccountTypeFlow fetchAccountTypeFlow,
-                                 @Qualifier("createAccountTypeFlowName")CreateAccountTypeFlow createAccountTypeFlow){
+    public AccountTypeController(FetchAccountTypeFlow fetchAccountTypeFlow, CreateAccountTypeFlow createAccountTypeFlow){
         this.fetchAccountTypeFlow = fetchAccountTypeFlow;
         this.createAccountTypeFlow = createAccountTypeFlow;
     }
@@ -44,20 +42,6 @@ public class AccountTypeController {
                 return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PostMapping("")
-    @ApiOperation(value="Creates a new AccountType", notes = "Creates a new AccountType in the DB.")
-    @ApiResponses(value={
-            @ApiResponse(code=200, message = "Account types returned", response = GeneralResponse.class),
-            @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
-            @ApiResponse(code = 404, message = "Not found", response = GeneralResponse.class),
-            @ApiResponse(code = 400, message = "Internal Server Error", response = GeneralResponse.class)})
-    public ResponseEntity<GeneralResponse<AccountTypeDto>> create(
-            @ApiParam(value = "Request body to create a new accountType.",
-            required = true)
-            @RequestBody AccountTypeDto accountType) {
-        AccountTypeDto accountTypeResponse = createAccountTypeFlow.create(accountType);
-        GeneralResponse<AccountTypeDto> response = new GeneralResponse<>(true, accountTypeResponse);
-        return new ResponseEntity<>(response,HttpStatus.OK);
-    }
+
 
 }

@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name="DEMO_ACCOUNT_TYPE", schema = "JANCO")
+@Table(name="DEMO_ACCOUNT_TYPE", schema = "DEMO_SCHEMA")
 public class AccountType implements Serializable {
 
     @Id
@@ -31,12 +31,18 @@ public class AccountType implements Serializable {
         this.accountTypeName = accountTypeName;
         this.creationDate = creationDate;
     }
+    public AccountType(String mnemonic, String accountTypeName, LocalDate creationDate) {
+        this.mnemonic = mnemonic;
+        this.accountTypeName = accountTypeName;
+        this.creationDate = creationDate;
+    }
 
     public AccountType() {
     }
 
     @OneToMany(targetEntity = AccountTransaction.class , fetch = FetchType.LAZY,mappedBy = "accountTypeId",orphanRemoval = true,cascade = CascadeType.PERSIST)
     public Set<AccountTransaction> getAccountTransactions(){
+
         return accountTransactions;
     }
 
@@ -45,34 +51,42 @@ public class AccountType implements Serializable {
     }
 
     public Long getAccountType_Id() {
+
         return accountType_Id;
     }
 
     public void setAccountType_Id(Long accountType_Id) {
+
         this.accountType_Id = accountType_Id;
     }
 
     public String getMnemonic() {
+
         return mnemonic;
     }
 
     public void setMnemonic(String mnemonic) {
+
         this.mnemonic = mnemonic;
     }
 
     public String getAccountTypeName() {
+
         return accountTypeName;
     }
 
     public void setAccountTypeName(String accountTypeName) {
+
         this.accountTypeName = accountTypeName;
     }
 
     public LocalDate getCreationDate() {
+
         return creationDate;
     }
 
     public void setCreationDate(LocalDate creationDate) {
+
         this.creationDate = creationDate;
     }
 

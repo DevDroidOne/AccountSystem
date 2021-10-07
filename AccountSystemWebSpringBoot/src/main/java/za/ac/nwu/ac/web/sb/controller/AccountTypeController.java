@@ -29,7 +29,7 @@ public class AccountTypeController {
         this.createAccountTypeFlow = createAccountTypeFlow;
     }
 
-    @GetMapping("/all")
+/*    @GetMapping("/all")
     @ApiOperation(value = "Gets all the configured Account types", notes = "Returns a list of account types")
     @ApiResponses(value={
             @ApiResponse(code=200, message = "Account types returned", response = GeneralResponse.class),
@@ -40,7 +40,7 @@ public class AccountTypeController {
                 List<AccountTypeDto> accountTypes = fetchAccountTypeFlow.getAllAccountTypes();
                 GeneralResponse<List<AccountTypeDto>> response = new GeneralResponse<>(true,accountTypes);
                 return new ResponseEntity<>(response, HttpStatus.OK);
-    }
+    }*/
 
 
 

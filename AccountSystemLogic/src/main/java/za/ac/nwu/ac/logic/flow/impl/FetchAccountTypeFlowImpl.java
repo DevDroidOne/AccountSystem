@@ -28,4 +28,8 @@ public class FetchAccountTypeFlowImpl implements FetchAccountTypeFlow {
         accountTypeDtos.add(new AccountTypeDto("Miles","Miles", LocalDate.now()));
         return accountTypeDtos;
     }
+
+    public boolean methodTest(){
+        return true;
+    }
 }

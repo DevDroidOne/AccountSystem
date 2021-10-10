@@ -7,7 +7,7 @@
     <artifactId>AccountSystem</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <description>Hello</description>
+    <description>Project 323</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -123,7 +123,7 @@
                 <plugin>
                     <groupId>com.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.3</version>
+                    <version>0.8.7</version>
                     <configuration>
                         <!--<haltOnFailure>${haltOnFailure}</haltOnFailure>-->
                         <rules>
@@ -153,6 +153,28 @@
                             </rule>
                         </rules>
                     </configuration>
+                    <executions>
+                        <execution>
+                            <id>jacoco-check</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                        <id>default-prepare-agent</id>
+                            <goals>
+                                <goal>preprare-agent</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>default-report</id>
+                            <phase>prepare-package</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
